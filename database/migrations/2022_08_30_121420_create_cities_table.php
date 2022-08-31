@@ -20,14 +20,14 @@ class CreateCitiesTable extends Migration
             $table->string('name_en', 50);
             $table->string('name_cyrl', 50);
             $table->integer('phone_kod');
-            $table->integer('c_order',5);
+            $table->integer('c_order');
             $table->integer('ns11_code');
+            $table->integer('region_id');
             $table->integer('soato');
             $table->timestamps();
 
 
 
-            $table->foreign('region_id')->references('id')->on('region');
         });
     }
 

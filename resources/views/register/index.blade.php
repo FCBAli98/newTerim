@@ -10,7 +10,7 @@
             <div class="title-3 textCenter">
                 {{date('Y')}} йилги пахта терими
             </div>
-            <?php echo Form::model($model,['url' => route('register.actionPhone'), 'method' => 'post', 'files' => true]) ?>
+            <?php echo Form::model($model,['url' => route('register.store'), 'method' => 'post', 'files' => true]) ?>
             <div class="form-group{{ $errors->has('phone-number') ? ' has-error' : '' }}">
                 <label>Шахсий мобил рақамингизни киритинг</label>
                 <?= Form::number('phone-number', old('phone-number') ,['class' => 'form-control', 'rows' => '5' ,'id' => 'phone-number', 'required' => true]) ?>

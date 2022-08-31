@@ -42,16 +42,17 @@ class CreateCitizensTable extends Migration
             $table->string('contract_number', 30);
             $table->date('contract_date');
             $table->integer('type_employer_id');
+            $table->integer('region_id');
+            $table->integer('city_id');
+            $table->bigInteger('makhalla_id');
+            $table->integer('otryad_id');
             $table->string('company_tin',30);
             $table->timestamps();
 
 
 
 
-            $table->foreign('region_id')->references('id')->on('region');
-            $table->foreign('city_id')->references('id')->on('city');
-            $table->foreign('makhalla_id')->references('id')->on('makhalla');
-            $table->foreign('otryad_id')->references('id')->on('otryad');
+
         });
     }
 

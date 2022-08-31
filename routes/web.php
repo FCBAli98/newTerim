@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-//Route::get('first_step', [\App\Http\Controllers\RegisterController::class, 'actionPhone']);
-Route::post('first_step', [\App\Http\Controllers\RegisterController::class, 'actionPhone']);
 
+Route::resource('/first_step', \App\Http\Controllers\RegisterController::class);
 

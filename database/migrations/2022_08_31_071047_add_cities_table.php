@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMakhallasTable extends Migration
+class AddCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateMakhallasTable extends Migration
      */
     public function up()
     {
-        Schema::create('makhallas', function (Blueprint $table) {
-            $table->id();
-            $table->string('name_uz');
-            $table->string('name_ru');
-            $table->integer('city_id');
-            $table->timestamps();
-
+        Schema::table('cities', function (Blueprint $table) {
+            $table->foreign('region_id')->references('id')->on('regions');
         });
     }
 
@@ -30,6 +25,8 @@ class CreateMakhallasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('makhallas');
+        Schema::table('cities', function (Blueprint $table) {
+            //
+        });
     }
 }
