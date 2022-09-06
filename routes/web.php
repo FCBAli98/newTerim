@@ -18,5 +18,8 @@ use Illuminate\Support\Facades\Route;
 //});
 
 
-Route::resource('/first_step', \App\Http\Controllers\RegisterController::class);
-
+//Route::get('/first_step', [\App\Http\Controllers\RegisterController::class, 'index']);
+Route::get('register', [\App\Http\Controllers\RegisterController::class, 'index'])->name('register.index');
+Route::post('first_step', [\App\Http\Controllers\RegisterController::class, 'firstStep'])->name('first_step.form');
+Route::post('second_step', [\App\Http\Controllers\RegisterController::class, 'SecondStep'])->name('second_step.form');
+Route::get('/detail_info', [\App\Http\Controllers\RegisterController::class , 'actionDetail'])->name('detail_info');

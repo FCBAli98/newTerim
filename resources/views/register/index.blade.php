@@ -10,42 +10,25 @@
             <div class="title-3 textCenter">
                 {{date('Y')}} йилги пахта терими
             </div>
-            <?php echo Form::model($model,['url' => route('register.store'), 'method' => 'post', 'files' => true]) ?>
-            <div class="form-group{{ $errors->has('phone-number') ? ' has-error' : '' }}">
-                <label>Шахсий мобил рақамингизни киритинг</label>
-                <?= Form::number('phone-number', old('phone-number') ,['class' => 'form-control', 'rows' => '5' ,'id' => 'phone-number', 'required' => true]) ?>
-                @if ($errors->has('phone-number'))
-                    <span class="help-block">
-                <strong>{{ $errors->first('phone-number') }}</strong>
-            </span>
-                @endif
-            </div>
+            <form action="{{route('first_step.form')}}" method="post">
+                @csrf()
+                <div class="form-group input tel">
+                    <label>Шахсий мобил рақамингизни киритинг</label>
+                    <input class="form-control phone formField" name="phone">
+                </div>
 
-            <div class="form-group{{ $errors->has('passport-seria') ? ' has-error' : '' }}">
-                <label>Паспорт серия</label>
-                <?= Form::text('passport-seria', old('passport-seria') ,['class' => 'form-control', 'id' => 'passport-seria']) ?>
-                @if ($errors->has('passport-seria'))
-                    <span class="help-block">
-            <strong>{{ $errors->first('passport-seria') }}</strong>
-          </span>
-                @endif
-            </div>
+                <div class="form-group input">
+                    <label>Паспорт серия</label>
+                    <input class="form-control formField" name="passport_seria">
+                </div>
 
-            <div class="form-group{{ $errors->has('passport-number') ? ' has-error' : '' }}">
-                <label>Паспорт рақам</label>
-                <?= Form::number('passport-number', old('passport-number') ,['class' => 'form-control', 'id' => 'passport-number', 'required' => true]) ?>
-                @if ($errors->has('passport-number'))
-                    <span class="help-block">
-            <strong>{{ $errors->first('passport-number') }}</strong>
-          </span>
-                @endif
-            </div>
-
-            <div class="text-right">
-                <button class="btn btn-success" type="submit">Кейинги <i class="glyphicon glyphicon-arrow-right"></i></button>
-            </div>
-
-            <?php echo Form::close(); ?>
+                <div class="form-group input">
+                    <label>Паспорт рақам</label>
+                    <input class="form-control formField" name="passport_number">
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary btn-sm">Кейинги <i class="glyphicon glyphicon-arrow-right"></i></button>
+            </form>
 
         </div>
     </div>

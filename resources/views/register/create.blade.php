@@ -11,11 +11,10 @@
                 {{date('Y')}} йилги пахта терими
             </div>
             <form action="{{route('first_step.store')}}" method="post" enctype="multipart/form-data">
-                @method('POST')
                 @csrf()
                 <div class="form-group input tel">
                     <label>Шахсий мобил рақамингизни киритинг</label>
-                    <input class="form-control phone formField" name="phone">
+                    <input class="form-control phone formField" name="phone" data-mask = '+\9\9\899 999 99 99'>
                 </div>
 
                 <div class="form-group input">
